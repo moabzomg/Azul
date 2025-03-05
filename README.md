@@ -1,3 +1,1 @@
-# firstProject
-
-This is my first project. 
+This is a C program for the board game Azul
