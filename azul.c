@@ -51,8 +51,8 @@ void print_empty(int i) {
 }
 int main() {
 	int p[n_player];
-	int result_only=0;
-	int ai[n_player]= {0,0};
+	int result_only=1;
+	int ai[2]= {1,1};
 	char color[5][n_ch] = {"cyan", "orange", "red", "black", "white"};
 	int bag[n_tile];
 	int discard[n_tile];
@@ -82,7 +82,8 @@ int main() {
 	int value[5][5][5],temp_wall[5][5];
 	double avg[n_player];
 	int win[n_player];
-	int pl,play =1;
+	int pl, play = 100;
+	int ai_only=1;
 	if (play>1){
 		for (i=0;i<n_player;i++){
 			avg[i]=0;
@@ -454,7 +455,7 @@ int main() {
 														strcpy(input_color,color[i]);
 														row =j;
 														if (result_only == 0){
-															printf("Player %d picked center and put %d %s in row %d, it worths %d\n",turn+1,n+1,color[i],row+1,max);
+															// printf("Player %d picked center and put %d %s in row %d, it worths %d\n",turn+1,n+1,color[i],row+1,max);
 														}
 														break;
 													}
@@ -478,7 +479,7 @@ int main() {
 																strcpy(input_color,color[i]);
 																row =j;
 																if (result_only == 0){
-																	printf("Player %d picked disc%s and put %d %s in row %d, it worths %d\n",turn+1,input,n+1,color[i],row+1,max);
+																	// printf("Player %d picked disc%s and put %d %s in row %d, it worths %d\n",turn+1,input,n+1,color[i],row+1,max);
 																}
 																break;
 															}
@@ -770,109 +771,113 @@ int main() {
 						if (result_only == 0){
 							printf("Turn ends!\n");
 						}
-						for (i=0; i<24*n_player+2; i++) {
-							printf("-");
-						}
-						printf("\n| ");
-						for (i=0; i<n_disc; i++)
-							printf("disc%d | ",i+1);
-						printf("\n");
+						if (ai_only == 0){
+							for (i=0; i<24*n_player+2; i++) {
+								printf("-");
+							}
+							printf("\n| ");
+							for (i=0; i<n_disc; i++)
+								printf("disc%d | ",i+1);
+							printf("\n");
 
-						for (i=0; i<n_disc; i++) {
-							printf("|  ");
-							for (j=0; j<2; j++) {
-								if (disc_selected[i] == 0)
-									print_tile(disc[i][j]);
-								else
-									printf("  ");
-							}
-							printf(" ");
-						}
-						printf("|\n");
-						for (i=0; i<n_disc; i++) {
-							printf("|  ");
-							for (j=2; j<4; j++) {
-								if (disc_selected[i] == 0)
-									print_tile(disc[i][j]);
-								else
-									printf("  ");
-							}
-							printf(" ");
-						}
-						printf("|\n");
-						for (i=0; i<24*n_player+2; i++) {
-							printf("-");
-						}
-						printf("\ncenter: ");
-						if (center_selected == 0) {
-							printf("\x1b[47m1\033[0m ");
-						}
-						for (i=0; i<n_center; i++) {
-							print_tile(center[i]);
-						}
-						printf("\n");
-						for (i=0; i<24*n_player+2; i++) {
-							printf("-");
-						}
-						printf("\n");
-						for (j=0; j<n_player; j++) {
-							printf("         Player %d       ",j+1);
-						}
-						printf("\n");
-						for (i=0; i<5; i++) {
-							printf("| ");
-							for (j=0; j<n_player; j++) {
-								for (k=0; k<5; k++) {
-									if (board[j][i][k]==-1) {
-										printf("X ");
-									} else if (board[j][i][k]==-2) {
+							for (i=0; i<n_disc; i++) {
+								printf("|  ");
+								for (j=0; j<2; j++) {
+									if (disc_selected[i] == 0)
+										print_tile(disc[i][j]);
+									else
 										printf("  ");
-									} else {
-										print_tile(board[j][i][k]);
-									}
 								}
-								printf("| ");
-								for (k=0; k<5; k++) {
-									if (wall[j][i][k] == 0) {
-										print_empty(wall_map[i][k]);
-									} else {
-										print_tile(wall_map[i][k]);
-									}
+								printf(" ");
+							}
+							printf("|\n");
+							for (i=0; i<n_disc; i++) {
+								printf("|  ");
+								for (j=2; j<4; j++) {
+									if (disc_selected[i] == 0)
+										print_tile(disc[i][j]);
+									else
+										printf("  ");
 								}
-								printf("| ");
+								printf(" ");
+							}
+							printf("|\n");
+							for (i=0; i<24*n_player+2; i++) {
+								printf("-");
+							}
+							printf("\ncenter: ");
+							if (center_selected == 0) {
+								printf("\x1b[47m1\033[0m ");
+							}
+							for (i=0; i<n_center; i++) {
+								print_tile(center[i]);
 							}
 							printf("\n");
-						}
-						for (j=0; j<n_player; j++) {
-							printf("|  ");
-							for (i=0; i<7; i++) {
-								switch (penalty[j][i]) {
-								case -2:
-									printf("%d",penalty_map[i]);
-									break;
-								case -1:
-									printf("\x1b[47m%d",penalty_map[i]);
-									break;
-								case 0:
-									printf("\x1b[106m%d",penalty_map[i]);
-									break;
-								case 1:
-									printf("\x1b[43m%d",penalty_map[i]);
-									break;
-								case 2:
-									printf("\x1b[101m%d",penalty_map[i]);
-									break;
-								case 3:
-									printf("\x1b[100m%d",penalty_map[i]);
-									break;
-								case 4:
-									printf("\x1b[107m%d",penalty_map[i]);
-									break;
+							for (i=0; i<24*n_player+2; i++) {
+								printf("-");
+							}
+							printf("\n");
+							for (j=0; j<n_player; j++) {
+								printf("         Player %d       ",j+1);
+							}
+							printf("\n");
+							for (i=0; i<5; i++) {
+								printf("| ");
+								for (j=0; j<n_player; j++) {
+									for (k=0; k<5; k++) {
+										if (board[j][i][k]==-1) {
+											printf("X ");
+										} else if (board[j][i][k]==-2) {
+											printf("  ");
+										} else {
+											print_tile(board[j][i][k]);
+										}
+									}
+									printf("| ");
+									for (k=0; k<5; k++) {
+										if (wall[j][i][k] == 0) {
+											print_empty(wall_map[i][k]);
+										} else {
+											print_tile(wall_map[i][k]);
+										}
+									}
+									printf("| ");
 								}
-								printf("\033[0m ");
+								printf("\n");
 							}
 						}
-						printf("|\n");
+						if (ai_only==0){
+							for (j=0; j<n_player; j++) {
+								printf("|  ");
+								for (i=0; i<7; i++) {
+									switch (penalty[j][i]) {
+									case -2:
+										printf("%d",penalty_map[i]);
+										break;
+									case -1:
+										printf("\x1b[47m%d",penalty_map[i]);
+										break;
+									case 0:
+										printf("\x1b[106m%d",penalty_map[i]);
+										break;
+									case 1:
+										printf("\x1b[43m%d",penalty_map[i]);
+										break;
+									case 2:
+										printf("\x1b[101m%d",penalty_map[i]);
+										break;
+									case 3:
+										printf("\x1b[100m%d",penalty_map[i]);
+										break;
+									case 4:
+										printf("\x1b[107m%d",penalty_map[i]);
+										break;
+									}
+									printf("\033[0m ");
+								}
+							}
+							printf("|\n");
+						}
 						for (x=0; x<n_player; x++) {
 							for (i=0; i<5; i++) {
 								if (board[x][i][4-i] != -1) {
@@ -946,8 +951,10 @@ int main() {
 								if (result_only == 0){
 									printf("Player %d gets %d penalty.\n",x+1,penalty_map[i]);
 								}
-								discard[n_discard]=penalty[x][i];
-								n_discard++;
+								if (penalty[x][i]!=-1){
+									discard[n_discard]=penalty[x][i];
+									n_discard++;
+								}								
 							}
 							if (p[x]<0) {
 								p[x]=0;
@@ -978,6 +985,9 @@ int main() {
 				}
 			}
 			if (flag == 1 && result_only ==0) {
+				for (i=0;i<n_discard;i++){
+					printf("%d, %d\n",i,discard[i]);
+				}
 				printf("Refilling discs...\n");
 				printf("Next turn starts with player %d.\n",next_first+1);
 			}
@@ -1116,7 +1126,7 @@ int main() {
 	}
 	if (play>1){
 		for (i=0;i<n_player;i++){
-			avg[i]*=1.0/1000;
+			avg[i]*=1.0/play;
 			printf("Player %d gets %.2f on average and wins %d time(s).\n",i+1, avg[i],win[i]);
 		}
 	}
