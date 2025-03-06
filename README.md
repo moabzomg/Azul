@@ -36,7 +36,7 @@ Every turn, the player will be asked to input either the disc number or the cent
 
 # AI
 
-My so-called AI is a naive random number generator trying their best to get as many points as it can with some while loops and if-then-else, calculating the value of each move and select the valid move with maximum value. I like the game tree idea in !(https://domwil.co.uk/posts/azul-ai/), but my AI is nowhere near of that guy, only my AI run faster and I can test my program with a computer to see if the gameplay is valid.
+My so-called AI is a naive random number generator trying their best to get as many points as it can with some while loops and if-then-else, calculating the value of each move and select the valid move with maximum value. I like the game tree idea from [Dom Wilson](https://domwil.co.uk/posts/azul-ai/), but my AI is nowhere near of that guy, only my AI run faster and I can test my program with a computer to see if the gameplay is valid.
 
 # How to Play
 
