@@ -40,11 +40,15 @@ My so-called AI is a naive random number generator trying their best to get as m
 
 # How to Play
 
+Install `gcc` if you don't have one, e.g. 
+`brew install gcc` in your terminal
+
 Download the azul.c and run `
 gcc azul.c -o azul
 ./azul
 `
 to enjoy the two-player game.
+
 
 
 
