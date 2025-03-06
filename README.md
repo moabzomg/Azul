@@ -10,7 +10,7 @@ There are 100 coloured tiles, with 20 tiles for each color (cyan, orange, red, b
 
 # Gameplay
 
-![My Azul Game in C](https://imgur.com/a/HVjKQ8G)
+![https://imgur.com/a/HVjKQ8G](https://imgur.com/a/EG9IXmx)
 
 Each player take turns to either pick all tiles of a chosen colour from a disc or the centre, which contains tiles unselected from the disc selected other than the chosen colour. The game designer states that the player visited Portugal most recently goes first, indicated by the first player marker, with a "1" on it. It is placed in the centre at the start of every turn, the first player who choose the centre should also collect the first player marker, putting it on the floor line, corresponds to the penalty points (Please refer to scoring below).
 
