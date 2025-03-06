@@ -1,6 +1,6 @@
 # Overview
 
-!(https://upload.wikimedia.org/wikipedia/en/2/23/Picture_of_Azul_game_box.jpg)[-
+![](https://upload.wikimedia.org/wikipedia/en/2/23/Picture_of_Azul_game_box.jpg)[-
 
 This is a C program for the board game Azul. The goal of the game is to get as many points as you can to beat your opponents, which could be played by 2-4 people. They collected tiles from the Factory Display (discs) and placed them to their own walls with certain rules. The game ends when a player completed a horizontal row of the wall. Please refer to the details and gameplay examples of the official game instructions: https://tesera.ru/images/items/1108676/EN-Azul-Rules.pdf
 
