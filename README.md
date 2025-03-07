@@ -2,7 +2,7 @@
 
 ![](https://upload.wikimedia.org/wikipedia/en/2/23/Picture_of_Azul_game_box.jpg)[-
 
-This is a C program for the board game Azul. The goal of the game is to score as many points as possible to beat your opponents, who can be 2-4 players. Players collect tiles from the Factory Display (discs) and place them on their own walls following certain rules. The game ends when a player completes a horizontal row of their wall. Please refer to the details and gameplay examples in the [official game instructions](https://tesera.ru/images/items/1108676/EN-Azul-Rules.pdf)
+This is a C program for the board game Azul. The goal of the game is to score as many points as possible to beat your opponents, who can be 2-4 players. Players collect tiles from the Factory Display (discs) and place them on their own walls following certain rules. The game ends when a player completes a horizontal row of their wall. Please refer to the details and gameplay examples in the [official game instructions](https://tesera.ru/images/items/1108676/EN-Azul-Rules.pdf).
 
 # Pre-game setup
 
@@ -51,8 +51,9 @@ to enjoy the two-player game.
 
 To change it with a game of 3 or 4 and with AI involvement, download and run `./azul.sh` in your terminal and follow the input prompts. 
 
+# Monte Carlo Simultaion
 
-
+You could also run the game for multiple times by seeding the random number generator to see the outcome of the AI performance and their statistics, such as points scored of the game and the win probability of the first player to win.
 
 # Motivation
 
