@@ -40,7 +40,7 @@ My so-called AI is a simple random number generator that tries to score as many 
 # How to Play
 
 Install `gcc` if you don't have one, e.g. 
-`brew install gcc` in your terminal
+`npm install gcc` in your terminal
 
 Download the azul.c and run 
 ```
